@@ -1,0 +1,88 @@
+[
+  {
+    "id": "84769092-5222-4aeb-9154-1e800b530bfd",
+    "status": true
+  },
+  {
+    "id": "f8e7d6ab-f9f3-4a97-8be3-eb5816a27f52",
+    "status": true
+  },
+  {
+    "id": "4ae6cf1b-e5cb-4abf-9098-c017869ed58b",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  },
+  {
+    "id": "4a6a566e-cee9-4bb6-a7b0-0d16b85c33fa",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  },
+  {
+    "id": "ff737dd4-ae0d-4642-ad12-bae39362ecb6",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  },
+  {
+    "id": "f6357b11-b652-4a35-8f65-2420e7347332",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  },
+  {
+    "id": "df4ae3e8-dea3-4bb8-aa5e-177f0aa6aa67",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  },
+  {
+    "id": "50313d03-8a30-4d24-a801-240b642e58a5",
+    "title": "Mouse Gamer",
+    "description": "Mouse RGB 16000 DPI",
+    "code": "MOU123",
+    "price": 8500,
+    "status": true,
+    "stock": 20,
+    "category": "Perifericos",
+    "thumbnails": [
+      "img/mouse.png"
+    ]
+  }
+]
