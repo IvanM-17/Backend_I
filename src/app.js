@@ -6,6 +6,9 @@ import { initSocket } from "./socket.js";
 import productsRouter from "./routes/products.router.js";
 import viewsRouter from "./routes/views.router.js";
 
+import { connectDB } from "./config/db.js";
+connectDB();
+
 const app = express();
 const server = http.createServer(app);
 
@@ -23,6 +26,13 @@ app.use(express.json());
 app.use(express.static("src/public"));
 
 app.use("/api/products", productsRouter);
+
+app.get("/", (req, res) => {
+  res.json({
+    status: "OK",
+    message: "Servidor funcionando"
+  });
+});
 app.use("/", viewsRouter);
 
 server.listen(8080, () => {

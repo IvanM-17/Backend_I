@@ -82,5 +82,16 @@
     "stock": 10,
     "category": "general",
     "thumbnails": []
+  },
+  {
+    "id": "a0fb7d12-ba67-4ff3-83ce-a4b9e2d49f2a",
+    "title": "Producto test",
+    "description": "Descripción del producto",
+    "code": "ABC123",
+    "price": 100,
+    "status": true,
+    "stock": 10,
+    "category": "general",
+    "thumbnails": []
   }
 ]

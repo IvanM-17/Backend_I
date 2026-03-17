@@ -1,33 +1,50 @@
 import { Router } from "express";
-import ProductManager from "../managers/ProductManager.js";
+import ProductDAO from "../dao/product.dao.js";
 import { getIO } from "../socket.js";
-import path from "path";
-
-const productManager = new ProductManager(
-  path.resolve("./src/data/products.json")
-);
 
 const router = Router();
+const productManager = new ProductDAO();
 
-
+//Get Router
 router.get("/", async (req, res) => {
-    const products = await productManager.getProducts();
-    res.json(products);
-})
+  try {
+    const result = await productManager.getProducts({
+      limit: parseInt(req.query.limit) || 10,
+      page: parseInt(req.query.page) || 1,
+      sort: req.query.sort,
+      query: req.query.query
+    });
 
-router.post("/", async (req, res) => {
-    console.log("BODY RECIBIDO:", req.body);
+    res.json(result);
 
-    await productManager.addProduct(req.body);
-
-    const products = await productManager.getProducts();
-
-    const io = getIO();
-    io.emit("updateProducts", products);
-
-    res.json({ message: "Producto agregado" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });
 
+//Post Router
+router.post("/", async (req, res) => {
+  try {
+    console.log("BODY RECIBIDO:", req.body);
+
+    const newProduct = await productManager.addProduct(req.body);
+  
+    const updatedProducts = await productManager.getProducts({
+      limit: 100,
+      page: 1
+    });
+
+    const io = getIO();
+    io.emit("updateProducts", updatedProducts.payload);
+
+    res.status(201).json(newProduct);
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+//Delete Router
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -38,10 +55,13 @@ router.delete("/:id", async (req, res) => {
       return res.status(404).json({ error: "Producto no encontrado" });
     }
 
-    const products = await productManager.getProducts();
+    const updatedProducts = await productManager.getProducts({
+      limit: 100,
+      page: 1
+    });
 
     const io = getIO();
-    io.emit("updateProducts", products);
+    io.emit("updateProducts", updatedProducts.payload);
 
     res.json({ message: "Producto eliminado" });
 
@@ -50,4 +70,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-export default router
+export default router;
